@@ -1,0 +1,72 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+
+<div class="container-fluid mt--7">
+  <label class="form-control-label" for="input-phone">Catégorie</label>
+  <mat-form-field appearance="fill" style="    position: fixed;
+  right: 4%;
+  top: 17%;" >
+    <mat-label>catégorie d'emploi</mat-label>
+    <mat-select (selectionChange)="filter($event.value)">
+      <mat-option *ngFor="let cat of cats" [value]="cat">
+        {{ cat }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="row mb-4" *ngFor="let post of allPosts">
+    <div class="col-xl">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">
+                {{ post.companyName }}
+              </h6>
+              <h2 class="mb-0">{{ post.title }}</h2>
+              <h5 class="mb-0 text-success">{{ post.category }}</h5>
+            </div>
+            <div class="col-1">
+              <i *ngIf="postOpened != post.title" class="ni ni-bold-down" style="cursor: pointer;"
+                (click)="openPost(post.title)"></i>
+              <i *ngIf="postOpened == post.title" class="ni ni-bold-up" style="cursor: pointer;"
+                (click)="openPost(post.title)"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            {{ post.description }}
+          </div>
+          <div *ngIf="postOpened == post.title">
+            <hr class="m-4">
+            <span class="m-2">Expérience : {{post.experience}}</span><br>
+            <span class="m-2">Éducation  : {{post.education}}</span><br>
+            <span class="m-2">Adresse    : {{post.adress}}</span><br>
+            <span class="m-2">email      : {{post.email}}</span><br>
+          </div>
+        </div>
+        <div class="card-footer text-muted" style="
+            display: flex;
+            align-content: stretch;
+            justify-content: flex-end;
+            flex-direction: row;
+          ">
+          <div class="mr-4">      <i class="ni ni-mobile-button"></i>
+            {{ post.phone}} </div>         |
+
+
+            <div class="mr-4">  <i class="ni ni-world"></i>
+             {{ post.country }} </div>    |
+
+
+             <div class="mr-4"> <i class="ni ni-square-pin"></i>
+               {{ post.city }} </div>     |
+
+
+          <div class="mr-4"> <i class="ni ni-calendar-grid-58"></i>
+             {{ post.date }}</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

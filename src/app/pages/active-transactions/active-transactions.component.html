@@ -1,0 +1,51 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+
+<div class="container-fluid mt--7">
+  <div class="row mb-4" *ngFor="let post of allPosts">
+    <div class="col-xl">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">
+                {{ post.companyName }}
+              </h6>
+              <h2 class="mb-0">{{ post.title }}</h2>
+              <h5 class="mb-0 text-success">{{ post.category }}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            {{ post.description }}
+          </div>
+        </div>
+        <div
+          class="card-footer text-muted"
+          style="
+            display: flex;
+            align-content: stretch;
+            justify-content: flex-end;
+            flex-direction: row;
+          "
+        >
+          <div class="mr-4">      <i class="ni ni-mobile-button"></i>
+            {{ post.phone}} </div>         |
+
+
+            <div class="mr-4">  <i class="ni ni-world"></i>
+             {{ post.country }} </div>    |
+
+
+             <div class="mr-4"> <i class="ni ni-square-pin"></i>
+               {{ post.city }} </div>     |
+
+
+          <div class="mr-4"> <i class="ni ni-calendar-grid-58"></i>
+             {{ post.date }}</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

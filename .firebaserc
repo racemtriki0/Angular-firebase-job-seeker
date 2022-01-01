@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "jobs-e1c51": {
+      "hosting": {
+        "argon-dashboard-angular": [
+          "jobs-e1c51"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,209 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+<div class="order-xl-1 mt--8 pb-8 px-4">
+  <div class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+      <div class="row align-items-center">
+        <div class="col-8">
+          <h3 class="mb-0">
+            Offre d'emploi</h3>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h6 class="heading-small text-muted mb-4">Informations sur l'emploi</h6>
+      <div class="pl-lg-4">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-username"
+                >Nom de la sociéte</label
+              >
+              <input
+                type="text"
+                id="input-username"
+                class="form-control form-control-alternative"
+                placeholder="Nom de la sociéte"
+                [(ngModel)]="jobPost.companyName"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-phone"
+                >Catégorie</label
+              >
+              <mat-form-field appearance="fill">
+                <mat-label>Catégorie d'emploi</mat-label>
+                <mat-select (selectionChange)="changeCat($event.value)">
+                  <mat-option *ngFor="let cat of cats" [value]="cat">
+                    {{ cat }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-age"
+                >Annéé d'expérience</label
+              >
+              <input
+                type="text"
+                id="input-age"
+                class="form-control form-control-alternative"
+                placeholder="2 année"
+                [(ngModel)]="jobPost.experience"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-age"
+                >Niveau d'études</label
+              >
+              <input
+                type="text"
+                id="input-age"
+                class="form-control form-control-alternative"
+                placeholder="Baccalauréat"
+                [(ngModel)]="jobPost.education"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <!-- Address -->
+      <h6 class="heading-small text-muted mb-4">Informations de contact</h6>
+      <div class="pl-lg-4">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-address"
+                >Adresse</label
+              >
+              <input
+                id="input-address"
+                class="form-control form-control-alternative"
+                placeholder="Votre Adresse"
+                type="text"
+                [(ngModel)]="jobPost.adress"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-control-label" for="input-address"
+                >
+                Numéro de téléphone</label
+              >
+              <input
+                id="input-address"
+                class="form-control form-control-alternative"
+                placeholder="+216 56493426"
+                type="text"
+                [(ngModel)]="jobPost.phone"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="form-control-label" for="input-address"
+                >Adresse email </label
+              >
+              <input
+                id="input-address"
+                class="form-control form-control-alternative"
+                placeholder="travail@contact.com"
+                type="text"
+                [(ngModel)]="jobPost.email"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label" for="input-city">Ville</label>
+              <input
+                type="text"
+                id="input-city"
+                class="form-control form-control-alternative"
+                placeholder="Ville"
+                [(ngModel)]="jobPost.city"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label" for="input-country"
+                >Pays</label>
+              <input
+                type="text"
+                id="input-country"
+                class="form-control form-control-alternative"
+                placeholder="Pays"
+                [(ngModel)]="jobPost.country"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <label class="form-control-label" for="input-country"
+                >Code postale</label
+              >
+              <input
+                type="number"
+                id="input-postal-code"
+                class="form-control form-control-alternative"
+                placeholder="Code postale"
+                [(ngModel)]="jobPost.zip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <!-- Description -->
+      <h6 class="heading-small text-muted mb-4">Plus de détails</h6>
+      <div class="row pl-lg-4">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="form-control-label" for="input-education"
+              >Profession</label
+            >
+            <input
+              id="input-education"
+              class="form-control form-control-alternative"
+              placeholder="technicien supérieur en informatique"
+              type="text"
+              [(ngModel)]="jobPost.title"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="pl-lg-4">
+        <div class="form-group">
+          <label>Description de l'emploi</label>
+          <textarea
+            rows="4"
+            class="form-control form-control-alternative"
+            placeholder="Decrire l'emploi"
+            [(ngModel)]="jobPost.description"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="btn btn-info"
+    style="float: right; margin-top: 1em"
+    (click)="submitAddPost()"
+  >
+    Publier une offre
+  </button>
+</div>
